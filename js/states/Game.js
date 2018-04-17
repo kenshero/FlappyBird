@@ -6,13 +6,10 @@ BabbyBird.GameState = {
     // จะเเก็บ barrier ไว้ในตัวแปรนี้
     this.barrierPool = this.add.group();
 
-    //ค่าแรงโน้มถ่วง ที่ตัวเราจะตกจากพื้น
+    //ความเร็วที่ตัวเราจะตกลงพื้น
     this.game.physics.arcade.gravity.y = 400;
 
-    // ระยะสูงสุดที่ player จะกระโดดได้สูงสุด
-    this.maxJumpDistance = 30;
-
-    // เป็นตัวแปรตั้งค่า คียฺบอร์ด
+    // เป็นตัวแปรไว้ตั้งค่า keyboard
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
     //ความเร็วในการเคลื่อนที่
