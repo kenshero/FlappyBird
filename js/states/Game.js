@@ -1,21 +1,15 @@
 var BabbyBird = BabbyBird || {};
-
 BabbyBird.GameState = {
-
-  init: function() {
+init: function() {
     // จะเเก็บ barrier ไว้ในตัวแปรนี้
     this.barrierPool = this.add.group();
-
-    //ความเร็วที่ตัวเราจะตกลงพื้น
+//ความเร็วที่ตัวเราจะตกลงพื้น
     this.game.physics.arcade.gravity.y = 400;
-
-    // เป็นตัวแปรไว้ตั้งค่า keyboard
+// เป็นตัวแปรไว้ตั้งค่า keyboard
     this.cursors = this.game.input.keyboard.createCursorKeys();
-
-    //ความเร็วในการเคลื่อนที่
+//ความเร็วในการเคลื่อนที่
     this.levelPlayerSpeed = 200;
-
-    // ความเร็วตอนกระโดด
+// ความเร็วตอนกระโดด
     this.levelJumpSpeed = 200;
   },
   create: function() {
@@ -30,5 +24,16 @@ BabbyBird.GameState = {
     this.game.physics.arcade.enable(this.player);
   },
   update: function() {
+    if(this.player.alive) {
+      if(this.cursors.up.isDown || this.game.input.activePointer.isDown) {
+        this.playerJump();
+      }
+      if(this.player.top >= this.game.world.height || this.player.left <= 0 || this.player.top < -10) {
+        this.gameOver();
+      }
+    }
+  },
+  playerJump: function(){
+    this.player.body.velocity.y = -this.levelJumpSpeed;
   }
 };
