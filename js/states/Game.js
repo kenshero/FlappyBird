@@ -23,5 +23,16 @@ init: function() {
     this.player.body.gravity.y = 400
   },
   update: function() {
+    if(this.player.alive) {
+      if(this.cursors.up.isDown || this.game.input.activePointer.isDown) {
+        this.playerJump();
+      }
+      if(this.player.top >= this.game.world.height || this.player.left <= 0 || this.player.top < -10) {
+        this.gameOver();
+      }
+    }
+  },
+  playerJump: function(){
+    this.player.body.velocity.y = -this.levelJumpSpeed;
   }
 };
