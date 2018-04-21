@@ -1,6 +1,4 @@
 var BabbyBird = BabbyBird || {};
-
-
 BabbyBird.PreloadState = {
   init: function() {
     var style = {font: '32px Arial', fill: '#fff'}
