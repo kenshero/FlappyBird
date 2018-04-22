@@ -9,6 +9,8 @@ init: function() {
     this.levelPlayerSpeed = 150
 // ความเร็วตอนกระโดด
     this.levelJumpSpeed = 150
+// ใส่เสียง
+    this.jumpSound = this.add.audio('jump');
   },
   create: function() {
     //moving background
@@ -35,6 +37,7 @@ this.timer = this.game.time.events.loop(2500, this.createBarrier, this)
 }
   },
   playerJump: function(){
+    this.jumpSound.play()
     this.player.body.velocity.y = -this.levelJumpSpeed;
   },
   createBarrier: function() {

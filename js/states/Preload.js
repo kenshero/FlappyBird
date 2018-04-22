@@ -9,6 +9,7 @@ BabbyBird.PreloadState = {
     this.load.image('barrier', 'assets/barrier.png');
     this.load.image('player', 'assets/player.png');
     this.load.image('background', 'assets/background.png');
+    this.load.audio('jump', ['assets/sfx_wing.wav']);
   },
   create: function() {
     this.state.start('Game');
